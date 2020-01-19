@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Личный кабинет</title>
+  <!-- MDB icon -->
+  <!-- <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"> -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="../css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="../css/style.css">
+
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/navbar",
+            cache: false,
+            success: function(html){
+                $("#navbar").html(html);
+            }
+        });
+    });
+</script>
+
+
+
+
+      <div class="container mt-5">
+        <a href="/lk">Назад</a>
+            <h1 class="text-center">Линые данные</h1>
+
+            <div class="container mt-3 text-center">
+                <div class="mt-2">
+                    <li class="nav">
+                        <p>Login:
+                            <strong th:text="${user.login}" class="orange-text">
+                                login
+                            </strong>
+                        </p>
+                    </li>
+                    <li class="nav">
+                        <p>Name:
+                            <strong th:text="${user.fullName}" class="orange-text">
+                                fullName
+                            </strong>
+                        </p>
+                    </li>
+                    <li class="nav">
+                        <p>Phone:
+                            <strong th:text="${user.phone}" class="orange-text">
+                                phone
+                            </strong>
+                        </p>
+                    </li>
+                    <li class="nav">
+                        <p>e-mail:
+                            <strong th:text="${user.email}" class="orange-text">
+                                email
+                            </strong>
+                        </p>
+                    </li>
+                </div>
+
+            </div>
+      </div>
+
+
+
+<!-- 
+  <footer class="page-footer text-center font-small mt-3 orange fixed-bottom py-3" style="width: 100%;">
+    ORANGE TEAM АУКЦИОН
+  </footer> -->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>

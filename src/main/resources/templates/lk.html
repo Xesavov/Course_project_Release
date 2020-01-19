@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Личный кабинет</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/navbar",
+            cache: false,
+            success: function(html){
+                $("#navbar").html(html);
+            }
+        });
+    });
+</script>
+
+
+
+
+<div class="container mt-5">
+
+
+    <section class="">
+
+        <h3 class="text-center font-weight-bold mb-5">Личный кабинет пользователя</h3>
+
+        <div class="row wow">
+            <div class="col-lg-2 col-md-5 mb-4 mx-auto my-auto">
+                <div class="card hoverable center-block">
+                    <img class="card-img-top" src="/img/lkp1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <a href="/lk/info" class="black-text">Личные данные</a>
+                        <p class="card-title text-muted font-small mt-3 mb-2">Просмотр личных данных</p>
+                        <!-- <button type="button" class="btn btn-flat text-primary p-0 mx-0">перейти<i class="fa fa-angle-right ml-2"></i></button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-5 mb-4 mx-auto my-auto">
+                <div class="card hoverable center-block">
+                    <img class="card-img-top" src="/img/lkp2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <a href="/lk/torgi" class="black-text">Участие в торгах</a>
+                        <p class="card-title text-muted font-small mt-3 mb-2">Отслеживание активных лотов</p>
+                        <!-- <button type="button" class="btn btn-flat text-primary p-0 mx-0">перейти<i class="fa fa-angle-right ml-2"></i></button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-5 mb-4 mx-auto my-auto">
+                <div class="card hoverable center-block">
+                    <img class="card-img-top" src="/img/lkp3.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <a href="/lk/like" class="black-text">Избранное</a>
+                        <p class="card-title text-muted font-small mt-3 mb-2">Просмотр добавленных в избранное лотов</p>
+                        <!-- <button type="button" class="btn btn-flat text-primary p-0 mx-0">перейти<i class="fa fa-angle-right ml-2"></i></button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-5 mb-4 mx-auto my-auto">
+                <div class="card hoverable center-block">
+                    <img class="card-img-top" src="/img/lkp4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <a href="/lk/hist" class="black-text">История покупок</a>
+                        <p class="card-title text-muted font-small mt-3 mb-2">Информация о купленных или забронированных лотах</p>
+                        <!-- <button type="button" class="btn btn-flat text-primary p-0 mx-0">перейти<i class="fa fa-angle-right ml-2"></i></button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-5 mb-4 mx-auto my-auto">
+                <div class="card hoverable center-block">
+                    <img class="card-img-top" src="/img/lkp5.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <a href="/lk/notif" class="black-text">Уведомления</a>
+                        <p class="card-title text-muted font-small mt-3 mb-2">История действий, произведённых над лотами</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 my-5">
+            <form th:action="@{/logout}" method="post">
+                <p><input type="submit" value="Выйти из личного кабинета" /></p>
+            </form>
+        </div>
+
+    </section>
+
+
+</div>
+
+<!-- jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
+
+</body>
+</html>
+

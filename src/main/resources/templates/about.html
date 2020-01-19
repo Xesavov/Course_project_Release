@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>О нас</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!— Bootstrap core CSS —>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!— Material Design Bootstrap —>
+    <link rel="stylesheet" href="../../css/mdb.min.css">
+    <!— Your custom styles —>
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/navbar",
+            cache: false,
+            success: function(html){
+                $("#navbar").html(html);
+            }
+        });
+    });
+
+</script>
+<div class="container z-depth-1 my-5 py-5 px-4 px-lg-0">
+    <section>
+        <style>
+            .timeline {
+                position: relative;
+                list-style: none;
+                padding: 1rem 0;
+                margin: 0;
+            }
+
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                margin-left: -1px;
+                background-color: #f27513;
+            }
+
+            .timeline-element {
+                position: relative;
+                width: 50%;
+                padding: 1rem 0;
+                padding-right: 2.5rem;
+                text-align: right;
+            }
+
+            .timeline-element::before {
+                content: '';
+                position: absolute;
+                right: -8px;
+                top: 1.35rem;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                border: 2px solid #f27513;
+                background-color: #f27513;
+            }
+
+            .timeline-element:nth-child(even)::before {
+                right: auto;
+                left: -8px;
+            }
+
+            .timeline-element:nth-child(even) {
+                margin-left: 50%;
+                padding-left: 2.5rem;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            @media (max-width: 767.98px) {
+                .timeline::before {
+                    left: 8px;
+                }
+            }
+
+            @media (max-width: 767.98px) {
+                .timeline-element {
+                    width: 100%;
+                    text-align: left;
+                    padding-left: 2.5rem;
+                    padding-right: 0;
+                }
+            }
+
+            @media (max-width: 767.98px) {
+                .timeline-element::before {
+                    top: 1.25rem;
+                    left: 1px;
+                }
+            }
+
+            @media (max-width: 767.98px) {
+                .timeline-element:nth-child(even) {
+                    margin-left: 0rem;
+                }
+            }
+
+            @media (max-width: 767.98px) {
+                .timeline-element {
+                    width: 100%;
+                    text-align: left;
+                    padding-left: 2.5rem;
+                    padding-right: 0;
+                }
+            }
+
+            @media (max-width: 767.98px) {
+                .timeline-element:nth-child(even)::before {
+                    left: 1px;
+                }
+            }
+
+            @media (max-width: 767.98px) {
+                .timeline-element::before {
+                    top: 1.25rem;
+                }
+            }
+
+        </style>
+
+        <h3 class="font-weight-bold text-center dark-grey-text pb-2">О нас</h3>
+        <!--        <hr class="w-header my-4">-->
+
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+
+
+                <hr class="w-header my-4">
+
+                <div class="row">
+
+                    <div class="col-lg-8 mx-auto">
+
+                        <p>«Orange team» – команда единомышленников, которых объединяет любовь к старинным вещам с
+                            историей.</p>
+                        <p>На протяжении нескольких лет, сотрудники «Orange team» участвовали в работе аукционного дома,
+                            расположенного в Москве. За это время у нас сформировалось четкое понимание идеальной
+                            площадки
+                            интернет-аукциона</p>
+                        <p>
+                            Благодаря нашей работе профессиональные коллекционеры и любители, а также кто еще не
+                            сталкивался с
+                            предметами старины, будут покупать и продавать антиквариат, предметы искусства и
+                            коллекционирования,
+                            не выходя из дома.
+                        </p>
+
+                        <h3 class="text-center">
+                            Онлайн-аукцион "ORANGE TEAM" - это:
+                        </h3>
+                        <p>
+                        <ul>
+                            <li>Гарантия защищенности каждой сделки</li>
+                            <li>Сопровождение сделок администрацией торговой площадки</li>
+                            <li>Отсутствие рисков для покупателя и продавц</li>
+                            <li>Широкий функционал для поиска по категориям и приобретения лотов</li>
+                            <li>Большой выбор антиквариата, предметов искусства и коллекционирования.</li>
+                        </ul>
+                        </p>
+
+
+                        <ol class="timeline">
+                            <li class="timeline-element">
+                                <h5 class="font-weight-bold dark-grey-text mb-3">Покупателям</h5>
+
+
+                                <h4>Шаг1</h4>
+                                <p><img src="/img/pok1.png" alt="..." style="max-height: 200px"></p>
+                                <p class="text-muted">Зарегистрируйтесь на аукционе</p>
+                                <h4>Шаг2</h4>
+                                <p><img src="/img/pok2.png" alt="..." style="max-height: 200px"></p>
+                                <p class="text-muted">Примите участие в торгах за понравившийся вам лот</p>
+                                <h4>Шаг3</h4>
+                                <p><img src="/img/pok3.png" alt="..." style="max-height: 200px"></p>
+                                <p class="text-muted">В случае выигрыша оплатить и забрать выигранный лот по адресу:
+                                    Москва,
+                                    Авиамоторная, 9А Часы работы: ежедневно с 11.00-20.00, воскресенье - выходной
+                                    день. </p>
+                            </li>
+
+                            <li class="timeline-element">
+                                <h5 class="font-weight-bold dark-grey-text mb-3">Продавцам</h5>
+
+
+                                <h4>Шаг1</h4>
+                                <p><img src="/img/pro1.png" alt="..." style="max-height: 150px"></p>
+                                <p class="text-muted">Принесите предмет, который Вы хотите продать, в офис аукциона по
+                                    адресу:
+                                    Москва, Авиамоторная, 8А
+                                    Часы работы: ежедневно с 11.00-20.00, воскресенье - выходной день.
+                                    Для предварительной оценки вы можете прислать фотографии предмета на почту:
+                                    mtuci.bst1601@gmail.com
+                                </p>
+
+                                <h4>Шаг2</h4>
+                                <p><img src="/img/pro2.png" alt="..." style="max-height: 150px"></p>
+                                <p class="text-muted">Непосредственно в офисе аукциона наш опытный эксперт поможет Вам
+                                    определить
+                                    оценочную стоимость предмета и оформит все необходимые документы для того, чтобы
+                                    выставить Ваш
+                                    предмет на аукцион. Наш фотограф бесплатно осуществит профессиональную съёмку вашего
+                                    предмета
+                                    для дальнейшего его размещения на сайте аукциона.</p>
+
+                                <h4>Шаг3</h4>
+                                <p><img src="/img/pro3.png" alt="..." style="max-height: 150px"></p>
+                                <p class="text-muted">Если Ваш предмет был продан на аукционе — Вы получаете деньги за
+                                    проданный
+                                    предмет из расчета суммы выигравшей на аукционе максимальной ставки за вычетом
+                                    комиссии аукциона 8%.</p>
+                            </li>
+
+                            <li class="timeline-element">
+                                <h5 class="font-weight-bold dark-grey-text mb-3">Контакты</h5>
+                                <p class="text-muted">Мы находимся по адресу: Москва, Авиамоторная, 8А </p>
+                                <p class="text-muted">Часы работы: ежедневно с 11.00-20.00, воскресенье - выходной
+                                    день. </p>
+                                <p class="text-muted">Наш контактный телефон: 8-909-942-54-56</p>
+                                <p class="text-muted">Наша почта: mtuci.bst1601@gmail.com</p>
+                                <p><img src="/img/mapindex.png" alt="..." style="max-height: 200px"></p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+    </section>
+</div>
+
+<!-- jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Страница категории</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!— Bootstrap core CSS —>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!— Material Design Bootstrap —>
+    <link rel="stylesheet" href="../../css/mdb.min.css">
+    <!— Your custom styles —>
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+
+<body>
+
+<nav id="navbar"></nav>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/navbar",
+            cache: false,
+            success: function(html){
+                $("#navbar").html(html);
+            }
+        });
+    });
+</script>
+
+<div class="mt-3 mb-5 text-center">
+    <h2>Лоты
+    </h2>
+    <h2 th:text="${name}">category</h2>
+
+    <div class="row">
+
+        <div class="col-lg-3 mx-auto">
+            <div class="container text-center" th:each="cat : ${categories}">
+                <div class="list-group">
+                    <a th:href="@{'catalog?catId='+${cat.id}}" class="list-group-item list-group-item-action" th:text="${cat.name}">кат1</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9 mx-auto">
+            <div class="card mb-2 mr-5" th:each="prod : ${list}">
+                <div class="row no-gutters" th:id="'product'+${prod}">
+                    <script th:inline="javascript">
+                                    function showproduct[[${prod}]]()
+                                    {
+                                        $.ajax({
+                                            url: "/product/maincard?id=[[${prod}]]&allProducts=[[${allProducts}]]",
+                                            cache: false,
+                                            success: function(html){
+                                                $("#product[[${prod}]]").html(html);
+                                            }
+                                        });
+                                    }
+
+                                    $(document).ready(function(){
+                                        showproduct[[${prod}]]();
+                                        setInterval('showproduct[[${prod}]]()',1000);
+                                    });
+                                </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example text-center" class="flex-center">
+        <ul class="pagination pg-orange">
+            <li class="page-item" th:if="${not #lists.isEmpty(prevNumbs)}"><a class="page-link" th:href="@{${prefix}+${thisid}+'&page='+${prevpage}}">Предыдущая страница</a></li>
+            <li class="page-item" th:each="prev: ${prevNumbs}"><a class="page-link" th:text="${prev}" th:href="@{${prefix}+${thisid}+'&page='+${prev}}">1</a></li>
+            <li class="page-item"><a class="page-link" th:text="${thisPage}" th:href="@{${prefix}+${thisid}+'&page='+${thisPage}}">k</a></li>
+            <li class="page-item" th:each="next: ${nextNumbs}"><a class="page-link" th:text="${next}" th:href="@{${prefix}+${thisid}+'&page='+${next}}">n</a></li>
+            <li class="page-item" th:if="${not #lists.isEmpty(nextNumbs)}"><a class="page-link" th:href="@{${prefix}+${thisid}+'&page='+${nextpage}}">Следующая страница</a></li>
+        </ul>
+    </nav>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
+
+</body>
+</html>
+

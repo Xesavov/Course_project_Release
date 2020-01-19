@@ -1,0 +1,24 @@
+<div class="row no-gutters" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="" style="width:400px; height:100%; padding: 10px; display: flex;" >
+        <img th:src="'../../image/'+${product.image}" class="card-img" alt="..." width="100%" style="margin: auto">
+    </div>
+    <div>
+        <div class="card-body" >
+            <h5 class="card-title" th:text="${product.name}" th:href="@{'/product?id='+${product.id}}">Название товара</h5>
+            <p class="card-text" th:text="'Номер лота: '+${product.id}">Номер лота:</p>
+            <p class="card-text" th:text="${product.status}">Статус</p>
+            <p class="card-text" th:text="'Стоимость: '+${product.currPrice}">Цена покупки</p>
+            <p class="card-text" th:text="'Дата оплаты: '+${product.datePay}">Дата оплаты</p>
+        </div>
+        <script>
+                function up(pId, curr, steps)
+                {
+                    $.post('/lk/up?product='+pId+'&current='+curr+'&steps='+steps);
+                }
+                function like(pId)
+                {
+                    $.post('/lk/like?product='+pId);
+                }
+            </script>
+    </div>
+</div>

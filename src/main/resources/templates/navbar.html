@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1251" />
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!— Bootstrap core CSS —>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!— Material Design Bootstrap —>
+    <link rel="stylesheet" href="../../css/mdb.min.css">
+    <!— Your custom styles —>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light white">
+    <a class="navbar-brand orange-text" href="../../" tabindex="-1" aria-disabled="true">ORANGE TEAM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="cssmenu">
+
+        <ul class="navbar-nav">
+
+
+            <li class='has-sub'><a class="nav-link">Все категории</a>
+                <ul>
+                    <li class='has-sub ' th:each="cat : ${categories}">
+                        <a th:text="${cat.name}" th:href="@{/catalog(catId=${cat.id})}">Product 1</a>
+                        <ul>
+                            <li th:each="subcat : ${cat.subsidiary}">
+                                <a th:text="${subcat.name}" th:href="@{/catalog(catId=${subcat.id})}">Sub Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item mr-4">
+                <a class="nav-link" href="../../catalog">Аукцион</a>
+            </li>
+            <li class="nav-item mr-4">
+                <a class="nav-link" href="../../about">О нас</a>
+            </li>
+            <li class="nav-item" th:switch="${name}">
+                <a class="nav-link" href="/login" tabindex="-1" aria-disabled="true" th:text="'Войти'" th:case="null"></a>
+                <a th:switch="${role}">
+                    <a class="nav-link" href="/lk" tabindex="-1" aria-disabled="true" th:text="${name}" th:case="'ROLE_USER'">Личный кабинет</a>
+                    <a class="nav-link" href="/tetenka" tabindex="-1" aria-disabled="true" th:text="${name}" th:case="'ROLE_TETENKA'">Личный кабинет</a>
+                </a>
+            </li>
+            <li class="nav-item" th:switch="${name}">
+                <a class="nav-link" href="/registration" tabindex="-1" aria-disabled="true" th:text="'Регистрация'" th:case="null">Регистрация</a>
+                <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true" th:text="'Выйти'" th:case="*">Выйти</a>
+            </li>
+            <!--<li>
+                <form class="form-inline my-2 my-lg-0" action="/search" method="get">
+                    <input class="form-control  ml-5 mr-sm-5" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-rounded btn-amber" type="submit" >
+                        НАЙТИ
+                    </button>
+                </form>
+            </li>-->
+        </ul>
+    </div>
+</nav>
+
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Your custom scripts -->
+<script type="text/javascript"></script>
+
+</body>
+

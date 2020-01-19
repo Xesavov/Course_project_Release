@@ -1,0 +1,13 @@
+<div class="row no-gutters" xmlns:th="http://www.w3.org/1999/xhtml" th:if="${notif.id}">
+    <div class="" style="width:400px; height:100%; padding: 10px; display: flex;" >
+        <img th:src="'../../image/'+${notif.image}" class="card-img" alt="..." width="100%" style="margin: auto">
+    </div>
+    <div>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${notif.name}" th:href="@{'/product?id='+${notif.id}}">кувшин бомжа</h5>
+            <p class="card-text" th:text="'Номер лота: '+${notif.productId}">Номер лота</p>
+            <p class="card-text" th:text="${notif.text}">Текст</p>
+            <p class="card-text" th:text="'Дата: '+${notif.date}">Дата</p>
+        </div>
+    </div>
+</div>

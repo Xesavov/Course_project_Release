@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Страница категории</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!— Bootstrap core CSS —>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!— Material Design Bootstrap —>
+    <link rel="stylesheet" href="../../css/mdb.min.css">
+    <!— Your custom styles —>
+    <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+
+<body>
+
+<main>
+    <div class="container mt-3 mb-2 text-center">
+        <li class="nav">
+            <h3 class="mr-4">Поиск товара по номеру</h3>
+            <form class="form-inline my-2 my-lg-0" th:action="@{'/tetenka'}" method="get">
+                <input class="form-control  ml-5 mr-sm-5" type="search" pattern="[0-9]+" placeholder="Поиск" aria-label="Поиск" id="id" name="id">
+                <button class="btn btn-outline-success ml-3 my-2 my-sm-0" type="submit">
+                    <a class="green-text">Поиск по номеру лота</a>
+                </button>
+            </form>
+        </li>
+    </div>
+
+    <div class="container mt-3 mb-3">
+        <h3 class="text-center">Найденные товары:</h3>
+        <div class="card mb-2 mt-2" style="max-width: 100%;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img th:src="'../../image/'+${info.image}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <li class="nav">
+                            <p>Номер лота:
+                                <strong th:text="${info.id}">LOT_ID</strong>
+                            </p>
+                        </li>
+                        <li class="nav">
+                            <p>ФИО пользователя:
+                                <strong th:text="${info.fullName}">NAME</strong>
+                            </p>
+                        </li>
+                        <li class="nav">
+                            <p>E-mail пользователя:
+                                <strong th:text="${info.email}">EMAIL</strong>
+                            </p>
+                        </li>
+                        <li class="nav">
+                            <p>Статус лота:
+                                <strong th:text="${info.status}">STATUS</strong>
+                            </p>
+                        </li>
+                        <form method="POST" th:action="@{'/tetenka?id=' + ${info.id}}" th:if="info.id">
+                            <button type="submit" name="submit" value="value" class="link-button">Оформить покупку</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<footer class="page-footer text-center font-small mt-3 orange fixed-bottom py-3" style="width: 100%;">
+    ORANGE TEAM АУКЦИОН
+</footer>
+
+<!-- jQuery -->
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="../../js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="../../js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
+
+</body>
+</html>

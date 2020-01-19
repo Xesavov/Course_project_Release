@@ -1,0 +1,56 @@
+<div class="row no-gutters" xmlns:th="http://www.w3.org/1999/xhtml" th:if="${product.status} == 'В торгах' or ${allProducts} == true">
+    <div class="" style="width:400px; height:100%; padding: 10px; display: flex;" >
+        <img th:src="'../../image/'+${product.image}" class="card-img" alt="..." width="100%" style="margin: auto">
+    </div>
+    <div class="">
+        <div class="card-body" >
+            <h5 class="card-title" th:text="${product.name}" th:href="@{'/product?id='+${product.id}}">кувшин бомжа</h5>
+            <p class="card-text" th:text="'Номер лота: '+${product.id}">Номер лота:</p>
+            <p class="card-text" th:text="${product.status}">Статус</p>
+            <p class="card-text" th:text="${product.leader}">Лидерство</p>
+            <p><a class="card-text">Текущая цена: </a><a class="card-text" th:id="'price'+${product.id}">[[${product.currPrice}]]</a>
+            </p>
+            <p class="card-text" th:text="'Оценочная стоимость: '+${product.assVal}">Оценочная стоимость:
+                <strong class="green-text"></strong>
+            </p>
+            <p class="card-text" th:text="'Шаг: '+${product.step}">Шаг:
+                <strong class="green-text"></strong>
+            </p>
+
+            <p><a class="card-text"></a><a class="card-text" th:id="'time'+${product.id}">[[${product.time}]]</a>
+            </p>
+
+            <a th:if="${user}">
+            <button type="button" class="btn btn-warning px-3"
+                    th:onclick="up([[${product.id}]], [[${product.currPrice}]], 1)">
+                <i class="fas fa-arrow-alt-circle-up" aria-hidden="true"></i></button>
+
+            <button type="button" class="btn btn-warning px-3" th:onclick="like([[${product.id}]])" th:unless="${product.liked}">
+                <i class="fas fa-thumbs-up" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-warning px-3" th:onclick="unlike([[${product.id}]])" th:if="${product.liked}">
+                <i class="fas fa-thumbs-down" aria-hidden="true"></i></button>
+            </a>
+
+            <button type="button" class="btn btn-warning px-3"
+                    th:onclick="window.location='/product?id=[[${product.id}]]';">
+                <i th:href="@{'/product?id='+${product.id}}" class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+            </button>
+
+
+        </div>
+        <script>
+                function up(pId, curr, steps)
+                {
+                    $.post('/lk/up?product='+pId+'&current='+curr+'&steps='+steps);
+                }
+                function like(pId)
+                {
+                    $.post('/lk/like?product='+pId);
+                }
+                function unlike(pId)
+                {
+                    $.post('/lk/unlike?product='+pId);
+                }
+            </script>
+    </div>
+</div>

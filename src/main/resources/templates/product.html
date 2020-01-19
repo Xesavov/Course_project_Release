@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Страница товара</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!— Bootstrap core CSS —>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!— Material Design Bootstrap —>
+    <link rel="stylesheet" href="../../css/mdb.min.css">
+    <!— Your custom styles —>
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/navbar",
+            cache: false,
+            success: function(html){
+                $("#navbar").html(html);
+            }
+        });
+    });
+</script>
+
+<main class="pt-4">
+    <div class="container dark-grey-text">
+        <div class="row wow fadeIn">
+            <div class="col-md-6 mt-4">
+                 <img src="../../img/i.jpg" alt="image" class="img-fluid">
+
+
+<!--                &lt;!&ndash;Carousel Wrapper&ndash;&gt;-->
+<!--                <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">-->
+<!--                    &lt;!&ndash;Indicators&ndash;&gt;-->
+<!--                    <ol class="carousel-indicators">-->
+<!--                        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>-->
+<!--                        <li data-target="#carousel-example-1z" data-slide-to="1"></li>-->
+<!--                        <li data-target="#carousel-example-1z" data-slide-to="2"></li>-->
+<!--                    </ol>-->
+<!--                    &lt;!&ndash;/.Indicators&ndash;&gt;-->
+<!--                    &lt;!&ndash;Slides&ndash;&gt;-->
+<!--                    <div class="carousel-inner" role="listbox">-->
+<!--                        &lt;!&ndash;First slide&ndash;&gt;-->
+<!--                        <div class="carousel-item active">-->
+<!--                            <img src="../../img/i.jpg" style="max-height: 300px;">-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;/First slide&ndash;&gt;-->
+<!--                        &lt;!&ndash;Second slide&ndash;&gt;-->
+<!--                        <div class="carousel-item">-->
+<!--                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(19).jpg" style="max-height: 300px;" >-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;/Second slide&ndash;&gt;-->
+<!--                        &lt;!&ndash;Third slide&ndash;&gt;-->
+<!--                        <div class="carousel-item">-->
+<!--                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(20).jpg" style="max-height: 300px;">-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;/Third slide&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;/.Slides&ndash;&gt;-->
+<!--                    &lt;!&ndash;Controls&ndash;&gt;-->
+<!--                    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">-->
+<!--                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                        <span class="sr-only">Previous</span>-->
+<!--                    </a>-->
+<!--                    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">-->
+<!--                        <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                        <span class="sr-only">Next</span>-->
+<!--                    </a>-->
+<!--                    &lt;!&ndash;/.Controls&ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;/.Carousel Wrapper&ndash;&gt;-->
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4">
+                    <p class="lead">
+                    <h5 class="card-title" th:text="${product.name}">кувшин бомжа</h5>
+                    <p class="card-text" th:text="'Номер лота: '+${product.id}">Номер лота:
+                        <strong class="green-text" ></strong>
+                    </p>
+                    <p class="card-text" th:text="${product.status}">Статус</p>
+
+                    <p><a class="card-text"></a><a class="card-text" th:id="'time'+${product.id}">[[${product.time}]]</a></p>
+
+                    <p><a class="card-text">Текущая цена: </a><a class="card-text" th:id="'price'+${product.id}">[[${product.currPrice}]]</a></p>
+                    <script th:inline="javascript">
+                        function showtime[[${product.id}]]()
+                        {
+                            $.ajax({
+                                url: "/js/producttime?id=[[${product.id}]]",
+                                cache: false,
+                                success: function(html){
+                                    $("#time[[${product.id}]]").html(html);
+                                }
+                            });
+                        }
+                        function showprice[[${product.id}]]()
+                        {
+                            $.ajax({
+                                url: "/js/productprice?id=[[${product.id}]]",
+                                cache: false,
+                                success: function(html){
+                                    $("#price[[${product.id}]]").html(html);
+                                }
+                            });
+                        }
+                        $(document).ready(function(){
+                            showtime[[${product.id}]]();
+                            setInterval('showtime[[${product.id}]]()',1000);
+                            showprice[[${product.id}]]();
+                            setInterval('showprice[[${product.id}]]()',1000);
+                            showlid[[${product.id}]]();
+                            setInterval('showlid[[${product.id}]]()',1000);
+                        });
+                    </script>
+
+                    <p class="card-text" th:text="'Оценочная стоимость: '+${product.assVal}">Оценочная стоимость:
+                        <strong class="green-text" ></strong>
+                    </p>
+                    <p class="card-text" th:text="'Шаг: '+${product.step}">Шаг ставки:
+                        <strong class="green-text" ></strong>
+                    </p>
+
+                    <!-- <form method="POST" th:action="@{/lk/up(product=${product.id}, current=${product.currPrice}, steps=1)}">
+                        <button type="submit" name="submit" value="value" class="btn btn-rounded btn-amber">Поднять ставку</button>
+                    </form>
+                    <form method="POST" th:action="@{'/lk/like?product=' + ${product.id}}">
+                        <button type="submit" name="submit" value="value" class="btn btn-rounded btn-amber">Добавить в избранное</button>
+                    </form>
+                    <form method="POST" th:action="@{'/lk/unlike?product=' + ${product.id}}">
+                        <button type="submit" name="submit" value="value" class="btn btn-rounded btn-amber">Удалить из избранного</button>
+                    </form> -->
+
+                    <!--
+                                        <p class="4 text-center">Описание</p>
+                                        <p class="card-text" th:text="${product.description}">Описание
+                                            <strong class="green-text" ></strong>
+                                        </p> -->
+
+                </div>
+            </div>
+
+            <div class="container">
+                <p class="4 text-center">Параметры:</p>
+                <p class="card-text" th:text="${#strings.replace(product.attributes,'&#10;','; ')}">
+                </p>
+
+
+                <p class="4 text-center">Описание</p>
+                <p class="card-text" th:text="${product.description}">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Provident, expedita ipsa a saepe, eum veritatis autem amet consectetur sit est consequuntur rerum numquam
+                    facere totam similique dignissimos magni atque possimus!
+                    <strong class="green-text" ></strong>
+                </p>
+
+
+                <div class="row wow">
+                    <div class="col-md-4 mx-auto">
+                        <form method="POST" th:action="@{/lk/up(product=${product.id}, current=${product.currPrice}, steps=1)}">
+                            <button type="submit" name="submit" value="value" class="btn btn-rounded btn-amber">Поднять ставку</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4 mx-auto">
+                        <form method="POST" th:action="@{'/lk/like?product=' + ${product.id}}">
+                            <button type="submit" name="submit" value="value" class="btn btn-rounded btn-amber">Добавить в избранное</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4 mx-auto">
+                        <form method="POST" th:action="@{'/lk/unlike?product=' + ${product.id}}">
+                            <button type="submit" name="submit" value="value" class="btn btn-rounded btn-amber">Удалить из избранного</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+</main>
+
+<!--<footer class="page-footer text-center font-small mt-3 orange fixed-bottom py-3" style="width: 100%;">-->
+<!--    ORANGE TEAM АУКЦИОН-->
+<!--</footer>-->
+
+<!— jQuery —>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!— Bootstrap tooltips —>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!— Bootstrap core JavaScript —>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!— MDB core JavaScript —>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!— Your custom scripts (optional) —>
+<script type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!— Bootstrap core CSS —>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!— Material Design Bootstrap —>
+    <link rel="stylesheet" href="../../css/mdb.min.css">
+    <!— Your custom styles —>
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/navbar",
+            cache: false,
+            success: function(html){
+                $("#navbar").html(html);
+            }
+        });
+    });
+</script>
+
+<div class="view" style="background-image: url('https://b1.m24.ru/c/522956.jpg'); background-repeat: no-repeat; background-size: cover; max-height: 91%; background-position: center center;">
+    <div class="mask rgba-gradient align-items-center">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-6 col-xl-5 mb-4">
+                </div>
+                <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+                    <h1 class="h1-responsive font-weight-bold wow fadeInLeft orange-text" data-wow-delay="0.3s">Онлайн-аукцион "ORANGE TEAM" </h1>
+                    <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                    <h6 class="mb-3 wow fadeInLeft text-center" data-wow-delay="0.3s">Добро пожаловать</h6>
+                    <!-- <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">перейти к аукциону</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="view" style="background-image: url(https://sun9-54.userapi.com/c854420/v854420121/1a4326/72pHviepOqU.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit earum doloremque dolores libero beatae facere eaque repudiandae quia. Dolor ducimus aut optio tempora in praesentium ea quo? Illo corrupti sit inventore tempora! Optio aperiam dolor, sit ullam sed eveniet consectetur odio quia nesciunt a fugiat rerum deleniti reiciendis molestiae asperiores.</h3>
+</div> -->
+<!--       <h2 class="text-center mt-3 mb-3" id="Категории">Категории</h2>-->
+
+<!--        <div class="container text-center" th:each="cat : ${categories}">-->
+<!--            <div class="list-group">-->
+<!--                <a th:href="@{'catalog?catId='+${cat.id}+'&page=1'}" class="list-group-item list-group-item-action" th:text="${cat.name}">кат1</a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+
+<div class="container mt-5 mb-5">
+
+    <section class="dark-grey-text text-center">
+        <h3 class="font-weight-bold mb-4 pb-2">Самые популярные категории</h3>
+        <p class="grey-text w-responsive mx-auto mb-5">Ниже представлены самые популярные категории нашего аукциона, они регулярно обновляются</p>
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card collection-card z-depth-1-half">
+                    <div class="view zoom">
+                        <img src="img/12.jpg" class="img-fluid" style="max-height: 300px;"
+                             alt="">
+                        <div class="stripe dark">
+                            <a  class="black-text" href="../../catalog?catId=43">
+                                <p class="mt-2">Ювелирные изделия
+                                    <i class="fas fa-angle-right"></i>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card collection-card z-depth-1-half">
+                    <div class="view zoom">
+                        <img src="img/17.jpg" class="img-fluid" style="max-height: 300px;"
+                             alt="">
+                        <div class="stripe dark">
+                            <a  class="black-text" href="../../catalog?catId=20">
+                                <p class="mt-2">Букинистика
+                                    <i class="fas fa-angle-right"></i>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card collection-card z-depth-1-half">
+                    <div class="view zoom">
+                        <img src="img/1.jpg" class="img-fluid" style="max-height: 300px;"
+                             alt="">
+                        <div class="stripe dark">
+                            <a  class="black-text" href="../../catalog?catId=102">
+                                <p class="mt-2">Декор интерьера
+                                    <i class="fas fa-angle-right"></i>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card collection-card z-depth-1-half">
+                    <div class="view zoom">
+                        <img src="img/15.jpg" class="img-fluid" style="max-height: 300px;"
+                             alt="">
+                        <div class="stripe dark">
+                            <a  class="black-text" href="../../catalog?catId=10">
+                                <p class="mt-2">Живопись, графика, гравюра
+                                    <i class="fas fa-angle-right"></i>
+                                </p >
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="grey-text w-responsive mx-auto mb-5">С остальными категориями вы можете
+                ознакомиться с помощью специального меню в панели навигации</p>
+
+        </div>
+    </section>
+    <!--    <h2 id="Аукцион" class="text-center mt-4 mb-4" >Аукцион</h2>-->
+
+    <!--    <div class="mt-3 mb-3 row">-->
+    <!--        <div class="card mb-3 mr-1 ml-1" style="max-width:48%;" th:each="prod : ${list}">-->
+
+    <!--            <div class="row no-gutters">-->
+    <!--                <div class="col-md-6">-->
+    <!--                    <img src="../../img/i.jpg" class="card-img" alt="...">-->
+    <!--                </div>-->
+    <!--                <div class="col-md-6">-->
+    <!--                    <div class="card-body">-->
+    <!--                        <p class="card-title" th:text="${prod.name}" th:href="@{'/product/'+${prod.id}}">кувшин бомжа</p>-->
+    <!--                        <p class="card-text" th:text="'Номер лота: '+${prod.id}">Номер лота:-->
+    <!--                            <strong class="green-text" ></strong>-->
+    <!--                        </p>-->
+    <!--                        <p class="card-text" th:text="'Текущая цена: '+${prod.currPrice}">Текущая цена:-->
+    <!--                            <strong class="green-text" ></strong>-->
+    <!--                        </p>-->
+    <!--                        <p class="card-text" th:text="'Оценочная стоимость: '+${prod.assVal}">Оценочная стоимость:-->
+    <!--                            <strong class="green-text" ></strong>-->
+    <!--                        </p>-->
+    <!--                        <p class="card-text" th:text="'Шаг: '+${prod.step}">Шаг:-->
+    <!--                            <strong class="green-text" ></strong>-->
+    <!--                        </p>-->
+    <!--                        <p class="card-text" th:text="'Осталось времени: '+${prod.dateEnd}">Осталось времени:-->
+    <!--                            <strong class="green-text" ></strong>-->
+    <!--                        </p>-->
+
+    <!--                        <form method="POST" th:action="@{/lk/up(product=${prod.id}, current=${prod.currPrice}, steps=1)}">-->
+    <!--                            <button type="submit" name="submit" value="value" class="link-button">Поднять ставку</button>-->
+    <!--                        </form>-->
+
+    <!--                        <form method="POST" th:action="@{'/lk/like?product=' + ${prod.id}}">-->
+    <!--                            <button type="submit" name="submit" value="value" class="link-button">Добавить в избранное</button>-->
+    <!--                        </form>-->
+
+    <!--                        <button class="btn">-->
+    <!--                            <a th:href="@{'/product/'+${prod.id}}" class="purple-text">Перейти к товару</a>-->
+    <!--                        </button>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+
+
+
+    <!--    <hr class="featurette-divider">-->
+
+    <!--    <h1 class="text-center">Почему именно мы?</h1>-->
+
+    <!--    <div class="row container">-->
+    <!--        <div class="col-md-12">-->
+    <!--            <p>Orange team» – команда единомышленников, которых объединяет любовь к старинным вещам с историей.-->
+    <!--                На протяжении нескольких лет, сотрудники «Orange team» участвовали в работе аукционного дома, расположенного в Москве.-->
+    <!--                Учитывая объем пожеланий и отзывов, собранных за многолетнюю практику антикварного аукциона,-->
+    <!--                сформировалось четкое понимание идеальной торговой площадки. Теперь профессиональные коллекционеры и любители,-->
+    <!--                а также кто еще не сталкивался с предметами старины, будут покупать и продавать антиквариат,-->
+    <!--                предметы искусства и коллекционирования, не выходя из дома</p>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+</div>
+
+
+</div>
+<!--<footer class="page-footer text-center font-small mt-3 orange fixed-bottom py-3" style="width: 100%;">-->
+<!--    ORANGE TEAM АУКЦИОН-->
+<!--</footer>-->
+
+<!-- jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Your custom scripts -->
+<script type="text/javascript"></script>
+
+</body>
+</html>
